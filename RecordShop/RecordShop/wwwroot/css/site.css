@@ -5,6 +5,9 @@ body {
     padding-bottom: 20px;
 }
 
+.footer {
+    color: #8d0000 !important;
+}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
