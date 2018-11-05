@@ -7,7 +7,10 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/lib/mdbootstrap/dist/css/mdb.css" />s
+        <link rel="stylesheet" href="~/lib/mdbootstrap/dist/css/mdb.css" />
+
+        <link rel="stylesheet" type="text/css" href="~/lib/slick/slick.css" />
+        <link rel="stylesheet" type="text/css" href="~/lib/slick/slick-theme.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -44,21 +47,25 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer class="page-footer font-large red darken-4">
 
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">
-                © 2018 Copyright:
-                <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
-            </div>
-            <!-- Copyright -->
-
-        </footer>
     </div>
+    <footer class="page-footer font-large red darken-3">
 
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2018 Copyright:
+            <a href="https://unt.edu"> UNT</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="~/lib/slick/slick.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">

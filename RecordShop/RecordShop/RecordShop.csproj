@@ -5,11 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\lib\slick-1.8.1\.gitignore" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\bower.json" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\component.json" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\CONTRIBUTING.markdown" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\index.html" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\ISSUE_TEMPLATE.md" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\LICENSE" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\Makefile" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\package.json" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\README.markdown" />
+    <Content Remove="wwwroot\lib\slick-1.8.1\slick.jquery.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\mdbootstrap\dist\" />
+    <Folder Include="wwwroot\lib\slick-1.8.1\" />
   </ItemGroup>
 
 </Project>

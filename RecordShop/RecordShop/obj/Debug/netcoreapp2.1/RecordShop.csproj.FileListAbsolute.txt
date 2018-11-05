@@ -5,7 +5,6 @@ D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\bin\Debug\netcoreapp2.1\RecordShop
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\bin\Debug\netcoreapp2.1\RecordShop.pdb
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\bin\Debug\netcoreapp2.1\RecordShop.Views.dll
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\bin\Debug\netcoreapp2.1\RecordShop.Views.pdb
-D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.csprojAssemblyReference.cache
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.csproj.CoreCompileInputs.cache
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.RazorAssemblyInfo.cache
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.RazorAssemblyInfo.cs

@@ -1,12 +1,18 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
-body {
+html body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: lightgrey !important;
+}
+
+.carousel-image {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer {
-    color: #8d0000 !important;
+    bcolor: #8d0000 !important;
 }
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
