@@ -3,7 +3,12 @@ for details on configuring this project to bundle and minify static web assets. 
 html body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: lightgrey !important;
+    background-color: rgb(30, 30, 30);
+    color: white !important;
+}
+
+a{
+    color: rgb(65, 178, 218);
 }
 
 .carousel-image {
@@ -11,8 +16,17 @@ html body {
     margin-right: auto;
 }
 
+.margin-y-3{
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.nav-item{
+    color: white !important;
+}
+
 .footer {
-    bcolor: #8d0000 !important;
+    background-color: #8d0000 !important;
 }
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */

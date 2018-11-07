@@ -29,3 +29,4 @@ D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.dll
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.pdb
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.csproj.CopyComplete
+D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.csprojAssemblyReference.cache
