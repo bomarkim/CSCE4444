@@ -21,8 +21,13 @@ a{
     margin-bottom: 32px;
 }
 
-.nav-item{
+.nav-link{
     color: white !important;
+
+}
+
+.nav > li > a:hover{
+    background-color: transparent !important;
 }
 
 .footer {
