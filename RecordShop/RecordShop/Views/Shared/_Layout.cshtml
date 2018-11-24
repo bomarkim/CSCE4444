@@ -19,6 +19,11 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-dark danger-color-dark navbar-fixed-top">
@@ -35,6 +40,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="RecordList">Record List</a></li>
+                    <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Album">Random Album</a></li>
                     <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
@@ -46,7 +53,6 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
 
     </div>
     <footer class="page-footer font-large red darken-3">
@@ -65,7 +71,7 @@
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" src="~/lib/slick/slick.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
