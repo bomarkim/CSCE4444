@@ -7,28 +7,48 @@ html body {
     color: white !important;
 }
 
-a{
+a {
     color: rgb(65, 178, 218);
 }
+
+button:hover {
+    color: white !important;
+}
+
+button:active {
+    color: white !important;
+}
+
+button:focus {
+    color: white !important;
+}
+
 
 .carousel-image {
     margin-left: auto;
     margin-right: auto;
 }
 
-.margin-y-3{
+.margin-y-3 {
     margin-top: 32px;
     margin-bottom: 32px;
 }
 
-.nav-link{
+.nav-link {
     color: white !important;
-
 }
 
-.nav > li > a:hover{
+.nav > li > a:hover {
     background-color: transparent !important;
 }
+
+.breadcrumb-item {
+    color: white !important;
+}
+
+    .breadcrumb-item > a {
+        color: aqua;
+    }
 
 .footer {
     background-color: #8d0000 !important;

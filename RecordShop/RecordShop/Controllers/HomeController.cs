@@ -34,6 +34,16 @@ namespace RecordShop.Controllers
             return View();
         }
 
+        public IActionResult Album()
+        {
+            return View();
+        }
+
+        public IActionResult RecordList()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "RecordList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-app="record" ng-controller="SiteCtrl">
+    <h2>RecordList</h2>
+    <ul>
+        <li ng-repeat="r in listOfAlbums">
+            <h4>{{r.name}}</h4>
+            <a href="album">{{r.img}}</a>
+        </li>
+    </ul>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb red darken-3">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Record List</li>
+        </ol>
+    </nav>
+</div>
