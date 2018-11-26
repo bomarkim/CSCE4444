@@ -57,7 +57,11 @@ angular.module('record', []).controller('SiteCtrl', ['$scope', function ($scope)
             name: "Album10",
             img: "Not a link yet, because I don't know how to just yet."
         }
+<<<<<<< HEAD
     ];
+=======
+        ];
+>>>>>>> master
 
     $scope.album = {
         name: "Abbey Road",

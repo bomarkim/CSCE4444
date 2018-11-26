@@ -42,6 +42,7 @@ button:focus {
     background-color: transparent !important;
 }
 
+<<<<<<< HEAD
 .breadcrumb-item {
     color: white !important;
 }
@@ -49,6 +50,15 @@ button:focus {
     .breadcrumb-item > a {
         color: aqua;
     }
+=======
+.breadcrumb-item{
+    color: white !important;
+}
+
+.breadcrumb-item > a{
+    color: aqua;
+}
+>>>>>>> master
 
 .footer {
     background-color: #8d0000 !important;
