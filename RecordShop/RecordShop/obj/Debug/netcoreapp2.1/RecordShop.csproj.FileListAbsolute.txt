@@ -31,7 +31,5 @@ D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.csproj.CopyComplete
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Views\Home\Album.g.cshtml.cs
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Views\Home\RecordList.g.cshtml.cs
-<<<<<<< HEAD
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.csprojAssemblyReference.cache
-=======
->>>>>>> master
+
