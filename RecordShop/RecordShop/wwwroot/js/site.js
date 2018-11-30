@@ -84,6 +84,8 @@ app.controller("IndexCtrl", function ($scope) {
         }
 
     ];
+
+    $scope.name = "";
 });
 
 app.controller("AlbumCtrl", function ($scope) {
