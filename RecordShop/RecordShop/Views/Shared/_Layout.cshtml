@@ -27,46 +27,118 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-dark danger-color-dark navbar-fixed-top">
-        <div class="">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" style="color: white !important;" asp-controller="Home" asp-action="Index" class="navbar-brand">RecordShop</a>
+    <div ng-controller="layoutCtrl">
+        <nav class="navbar navbar-dark danger-color-dark navbar-fixed-top">
+            <div class="">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" style="color: white !important;" asp-controller="Home" asp-action="Index" class="navbar-brand">RecordShop</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="RecordList">Record List</a></li>
+                        <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Album">Random Album</a></li>
+                        <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li @* ng-if="user.isAdmin" *@><a class="nav-link" asp-area="" asp-controller="Home" asp-action="AddRecord">Add Record</a></li>
+                        <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a class="nav-link" data-toggle="modal" @* data-target="#registerModal" *@>Register</a></li>
+                        <li><a class="nav-link" data-toggle="modal" data-target="#signInModal">Sign In</a></li>
+
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="RecordList">Record List</a></li>
-                    <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Album">Random Album</a></li>
-                    <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li @* ng-if="user.isAdmin" *@><a class="nav-link" asp-area="" asp-controller="Home" asp-action="AddRecord">Add Record</a></li>
-                    <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+        </nav>
+
+        <partial name="_CookieConsentPartial" />
+
+        <div class="container body-content">
+            @RenderBody()
+
+        </div>
+        <footer class="page-footer font-large red darken-3">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                © 2018 Copyright:
+                <a href="https://unt.edu"> UNT</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+
+        <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModal" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title modal-text d-inline">Sign In</h4>
+                        <button type="button" class="close d-inline" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="signInForm" name="signInForm">
+                            <div class="form-row">
+                                <div class="form-group modal-text">
+                                    <label for="signInemail">Email</label>
+                                    <input id="signInemail" ng-model="user.email" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group modal-text">
+                                    <label for="signInpassword">Password</label>
+                                    <input id="signInpassword" ng-model="user.password" class="form-control" type="password" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-lg btn-red" ng-click="checkUserInfo(signInForm)">Register</button>
+                        <button type="button" class="btn-lg btn-grey" ng-click="clearUserInfo()" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-
+        <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModal" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title modal-text d-inline">Register</h4>
+                        <button type="button" class="close d-inline" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registerForm" name="registerForm">
+                            <div class="form-row">
+                                <div class="form-group modal-text">
+                                    <label for="registerEmail">Email</label>
+                                    <input id="registerEmail" ng-model="user.email" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group modal-text">
+                                    <label for="registerPassword">Password</label>
+                                    <input id="registerPassword" ng-model="user.password" class="form-control" type="password" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-lg btn-red" ng-click="checkUserInfo(registerForm)">Register</button>
+                        <button type="button" class="btn-lg btn-grey" ng-click="clearUserInfo()" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <footer class="page-footer font-large red darken-3">
 
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">
-            © 2018 Copyright:
-            <a href="https://unt.edu"> UNT</a>
-        </div>
-        <!-- Copyright -->
-
-    </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

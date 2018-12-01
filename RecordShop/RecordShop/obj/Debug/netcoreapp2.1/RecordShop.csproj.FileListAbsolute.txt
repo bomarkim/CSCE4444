@@ -33,3 +33,5 @@ D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\View
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Views\Home\RecordList.g.cshtml.cs
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.csprojAssemblyReference.cache
 D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Views\Home\AddRecord.g.cshtml.cs
+D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Views\Home\Register.g.cshtml.cs
+D:\jmwen\repos\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Views\Home\SignIn.g.cshtml.cs

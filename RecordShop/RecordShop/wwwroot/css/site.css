@@ -19,6 +19,10 @@ button:active {
     color: white !important;
 }
 
+.modal-text{
+    color: black !important;
+}
+
 button:focus {
     color: white !important;
 }

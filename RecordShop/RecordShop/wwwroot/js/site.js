@@ -86,6 +86,26 @@ app.controller("IndexCtrl", function ($scope) {
     ];
 
     $scope.name = "";
+    
+});
+
+app.controller("LayoutCtrl", function ($scope) {
+    $scope.user = {
+        email: "",
+        password: ""
+    };
+
+    $scope.clearUserInfo = function () {
+        user.email = "";
+        user.password = "";
+    };
+
+    $scope.submitUserInfo = function (form) {
+        //Do the thing that puts it into the database
+        //$http.post (........)
+        //will go to the HomeController unless we want another controller to do all this stuff with (probs not)
+    };
+   
 });
 
 app.controller("AlbumCtrl", function ($scope) {
