@@ -10,6 +10,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+//added these for error fix
+using Microsoft.EntityFrameworkCore;
+using static RecordShop.Models.DbContextModel;
+
+//hey look more error fixes
+
+
+
+
 namespace RecordShop
 {
     public class Startup
@@ -31,8 +40,14 @@ namespace RecordShop
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //need this for entity injection
+            services.AddDbContext<RecordShop_Context>(options => options.UseSqlServer(Configuration["ConnectionStrings:Default"]));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=RecordShop_Context.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<RecordShop_Context>
+                (options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

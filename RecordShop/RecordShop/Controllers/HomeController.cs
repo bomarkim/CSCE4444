@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RecordShop.Models;
+using RecordShop.ViewModels;
 
 namespace RecordShop.Controllers
 {
@@ -13,6 +14,37 @@ namespace RecordShop.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        //get random record
+        public IActionResult Random()
+        {
+            var record = new Record() { Name = "Test Record!" };
+
+            //temp creating list of customers
+            var customers = new List<Customer>
+            {
+                new Customer {Name = "Cust 1"},
+                new Customer {Name = "Cust 2"},
+            };
+
+            //create viewmodel object
+            var viewModel = new RandomRecordViewModel
+            {
+                Record = record,
+                Customers = customers
+            };
+
+            //return random record from dict
+            ViewData["Record"] = record;
+            return View(viewModel); //return viewmodel here
+            
+        }
+
+        //edit record referenced by ID
+        public IActionResult Edit(int id)
+        {
+            return Content("id=" + id);
         }
 
         public IActionResult About()

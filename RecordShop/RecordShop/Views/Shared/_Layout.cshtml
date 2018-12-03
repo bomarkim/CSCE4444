@@ -43,7 +43,7 @@
                     <ul class="nav navbar-nav">
                         <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                         <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="RecordList">Record List</a></li>
-                        <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Album">Random Album</a></li>
+                        <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Random">Random Album</a></li>
                         <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                         <li @* ng-if="user.isAdmin" *@><a class="nav-link" asp-area="" asp-controller="Home" asp-action="AddRecord">Add Record</a></li>
                         <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
@@ -98,7 +98,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn-lg btn-red" ng-click="checkUserInfo(signInForm)">Register</button>
+                        <button type="button" class="btn-lg btn-red" ng-click="checkUserInfo(signInForm)">Sign-In</button>
                         <button type="button" class="btn-lg btn-grey" ng-click="clearUserInfo()" data-dismiss="modal">Close</button>
                     </div>
                 </div>

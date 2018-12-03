@@ -57,4 +57,101 @@ In visual studio 2017 Community Edition:
 6. To add more products, right click 'Products' under 'Table' folder. -> select 'Show Table Data' option.
 
 //To connect to DATABASE
-7. 
+7. USE ENTITY FRAMEWORKS (which is the worst damn thing ever)
+- If you get an error about connections missing, I am SO sorry but you'll have to do this
+- If nothing is wrong when building the program, then skip part 8 completely.
+
+8. Building Connection - Entity Framework
+- Open Package Manager Console (Tools > NuGet Package Manager > Package Manager Console)
+- Type Add-Migration <name> (you gotta name it.)
+
+////////IF ERROR OCCURS CHECK THIS SECTION///////
+Source: https://docs.microsoft.com/en-us/ef/core/get-started/aspnetcore/new-db?tabs=visual-studio
+
+or you can watch the video I found after I typed this all out!! :))))))
+Source: https://youtu.be/Ng_8uMdsqps
+
+ERROR TIME! If you get this error: "No DbContext was found in assembly 'RecordShop'. Ensure that you're using the correct assembly and that the type is neither abstract nor generic."
+
+Run these commands in the Package Manager Console:
+'Install-Package Microsoft.EntityFrameworkCore.SqlServer'
+'Install-Package Microsoft.EntityFrameworkCore.Tools'
+'Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design'
+
+(If you get an error while installing these packages, God help you.)
+
+NOW CHECK TO SEE IF IT WILL ADD THE MIGRATION!!!!
+IF IT DOESN'T LMAO CONTINUE
+
+
+**Do this next section only if you are completely sure that building/migrating is not possible after following the previous steps. If you overwrite some of these next steps incorrectly, you will kill any previous Database configuration settings**
+
+Now create a model for the entire DB (YUP THATS RIGHT!!!!) 
+- right-click Models > Add > Class and name it something like "DbContextModel"
+be sure to include "using Microsoft.EntityFrameworkCore;" at top
+now INSIDE the generated public class paste this and change the public DbSet<NAME> NAME {get; set;}:
+
+
+public class BloggingContext : DbContext
+    {
+        public BloggingContext(DbContextOptions<BloggingContext> options)
+            : base(options)
+        { }
+
+        public DbSet<Blog> Blogs { get; set; }   
+        public DbSet<Post> Posts { get; set; }
+    }
+
+    public class Blog
+    {
+        public int BlogId { get; set; }
+        public string Url { get; set; }
+
+        public ICollection<Post> Posts { get; set; }
+    }
+
+    public class Post
+    {
+        public int PostId { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+
+        public int BlogId { get; set; }
+        public Blog Blog { get; set; }
+    }
+
+Delete any classes you don't need and update them accordingly.
+
+Part 2!
+Register your context with dependancy injection
+- go to Startup.cs
+- add these to top: 
+'using EFGetStarted.AspNetCore.NewDb.Models;'  
+'using static RecordShop.Models.DbContextModel;' 
+
+-inside 'ConfigureServices(IServiceCollection services)" under the services.AddMvc() 
+add the following code: 
+var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+    services.AddDbContext<BloggingContext>
+        (options => options.UseSqlServer(connection));
+
+-change "<BloggingContext>" to "<RecordShop_Context>"
+
+Part 3!
+Add KEY attribute to all things wanting a database
+-go back to any models that require a class (i.e. customers.cs)
+-inside the public class, above the first attribute add '[Key]'
+-add 'using System.ComponentModel.DataAnnotations;' to the top.
+
+you *SHOULD* be able to create the migration now. (JESUS CHRIST)
+check the solutions explorer for a "Migrations" folder
+/////ERROR SECTION END /////////////
+
+8. (cont) 
+- if no errors occur > type "Update-Database" in console
+- check side panels for "SQL Server Object Explorer" or View > SQL Server Object Explorer
+- SQL Server > localdb > Databases > (database name) > Tables > see the tables
+- create/edit database (if you want or if you dont have one) Right-click DB > view data
+
+- every time you add something to a model that interacts with a DB you MUST add a new migration!!
+- Package Manager Console > Add-Migration <name of migration> > Update-Database
