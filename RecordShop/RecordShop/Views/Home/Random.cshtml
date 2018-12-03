@@ -1,0 +1,29 @@
+﻿@model RecordShop.ViewModels.RandomRecordViewModel
+@{
+    ViewData["Title"] = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    //change classname of viewmodel if 4 or more records bought
+    var className = Model.Customers.Count > 3 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Record.Name</h2>
+
+
+@if(Model.Customers.Count == 0)
+{
+    <p>No one has bought this record yet.</p>
+}
+else
+{ 
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>
+            @customer.Name
+            </li>
+        }
+    </ul>
+}
