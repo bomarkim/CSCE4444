@@ -36,7 +36,7 @@ namespace RecordShop.Models
         public string ImageThumbnailUrl { get; set; }
 
         //boolean for selected genre
-        public bool isPreferredGenre { get; set; }
+        public string isPreferredGenre { get; set; }
         
         //set category id for relationships
         //public int CategoryId { get; set; }

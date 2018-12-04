@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 //added these for error fix
 using Microsoft.EntityFrameworkCore;
 using static RecordShop.Models.DbContextModel;
+using RecordShop.Models;
 
 //hey look more error fixes
 
@@ -41,13 +42,16 @@ namespace RecordShop
             });
 
             //need this for entity injection
-            services.AddDbContext<RecordShop_Context>(options => options.UseSqlServer(Configuration["ConnectionStrings:Default"]));
+            //services.AddDbContext<RecordShop_Context>(options => options.UseSqlServer(Configuration["ConnectionStrings:Default"]));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=RecordShop_Context.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<RecordShop_Context>
-                (options => options.UseSqlServer(connection));
+            //var connection = @"Server=(localdb)\mssqllocaldb;Database=RecordShop_Context.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+            //services.AddDbContext<RecordShop_Context>
+                //(options => options.UseSqlServer(connection));
+
+            services.AddDbContext<RecordShopContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("RecordShopContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,71 @@
+﻿@page
+@model RecordShop.Records.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Record</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Record.Genre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Record.Genre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Record.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Record.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Record.Artist)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Record.Artist)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Record.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Record.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Record.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Record.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Record.ImageUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Record.ImageUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Record.ImageThumbnailUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Record.ImageThumbnailUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Record.isPreferredGenre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Record.isPreferredGenre)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Record.RecordId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

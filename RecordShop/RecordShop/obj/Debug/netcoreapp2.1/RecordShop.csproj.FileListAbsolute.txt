@@ -73,3 +73,9 @@ C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Recor
 C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.pdb
 C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\RecordShop.csproj.CopyComplete
 C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Views\Home\Random.g.cshtml.cs
+C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Pages\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Pages\Records\Create.g.cshtml.cs
+C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Pages\Records\Delete.g.cshtml.cs
+C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Pages\Records\Details.g.cshtml.cs
+C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Pages\Records\Edit.g.cshtml.cs
+C:\Users\PC\Desktop\CSCE4444\RecordShop\RecordShop\obj\Debug\netcoreapp2.1\Razor\Pages\Records\Index.g.cshtml.cs
