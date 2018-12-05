@@ -11,4 +11,6 @@ namespace RecordShop.ViewModels
         public Record Record { get; set; }
         public List<Customer> Customers { get; set; }
     }
+
+    
 }

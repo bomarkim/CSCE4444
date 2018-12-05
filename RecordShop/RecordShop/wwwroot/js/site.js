@@ -29,6 +29,73 @@ app.controller('SiteCtrl', ['$scope', function ($scope) {
     
 }]);
 
+app.controller('CartCtrl', function ($scope) {
+        $scope.albums = [{
+            name: "Album 1",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 2",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 3",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 4",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 5",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 6",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 7",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 8",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 9",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 10",
+            description: "This is an album.",
+            price: 12.99
+        }, {
+            name: "Album 11",
+            description: "This is an album.",
+            price: 12.99
+        },
+        ];
+    
+    $scope.cart = {
+        totalPrice: 0
+    };
+    $scope.getTotalPrice = function () {
+        $scope.cart.totalPrice = 0;
+        angular.forEach($scope.albums, function (item) {
+            $scope.cart.totalPrice += item.price;
+        });
+    }();
+   
+    
+    $scope.removeAlbum = function (album) {
+        var index = $scope.albums.indexOf(album);
+        $scope.albums.splice(index, 1);
+    }
+
+    
+});
+
 app.controller("IndexCtrl", function ($scope) {
     $('.autoplay').slick({
         slidesToShow: 1,

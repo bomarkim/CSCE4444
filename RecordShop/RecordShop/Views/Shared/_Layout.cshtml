@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="~/lib/slick/slick.css" />
         <link rel="stylesheet" type="text/css" href="~/lib/slick/slick-theme.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -45,11 +46,15 @@
                         <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="RecordList">Record List</a></li>
                         <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Random">Random Album</a></li>
                         <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                        <li @* ng-if="user.isAdmin" *@><a class="nav-link" asp-area="" asp-controller="Home" asp-action="AddRecord">Add Record</a></li>
+                        <li @* ng-if="user.isAdmin" *@><a class="nav-link" asp-area="" asp-controller="Records" asp-action="Create">Add Record</a></li>
                         <li><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                        <li><a class="nav-link" data-toggle="modal" @* data-target="#registerModal" *@>Register</a></li>
-                        <li><a class="nav-link" data-toggle="modal" data-target="#signInModal">Sign In</a></li>
+                        
 
+                    </ul>
+                    <ul class="nav navbar-nav d-inline">
+                        <li><a class="nav-link" data-toggle="modal" @* data-target="#registerModal" *@>Register</a></li>
+                        <li><a class="nav-link" data-toggle="modal" data-target="#signInModal">Sign Out</a></li>
+                        <li><a class="nav-link" data-toggle="modal" data-target="#signInModal">Sign In</a></li>
                     </ul>
                 </div>
             </div>

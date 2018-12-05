@@ -19,7 +19,13 @@ namespace RecordShop.Controllers
         //get random record
         public IActionResult Random()
         {
-            var record = new Record() { Name = "Test Record!" };
+            var record = new Record() {
+                Name = "Test Record!",
+                Genre = "Pop",
+                Artist = "Linkin Park",
+                Description = "This is an Album",
+                Price = 12
+            };
 
             //temp creating list of customers
             var customers = new List<Customer>
@@ -66,7 +72,7 @@ namespace RecordShop.Controllers
             return View();
         }
 
-        public IActionResult Album()
+        public IActionResult Album(int ID)
         {
             return View();
         }
@@ -81,13 +87,31 @@ namespace RecordShop.Controllers
             return View();
         }
 
-        public IActionResult Register()
+        public IActionResult Admin()
         {
             return View();
         }
 
-        public IActionResult SignIn()
+        public IActionResult ShoppingCart()
         {
+            List<Record> records = new List<Record>()
+            {
+                new Record() { Name = "Record 1", Price = 13.5M },
+                new Record() { Name = "Record 2", Price = 13.5M },
+                new Record() { Name = "Record 3", Price = 13.5M },
+                new Record() { Name = "Record 4", Price = 13.5M },
+                new Record() { Name = "Record 5", Price = 13.5M },
+                new Record() { Name = "Record 6", Price = 13.5M },
+                new Record() { Name = "Record 7", Price = 13.5M },
+                new Record() { Name = "Record 8", Price = 13.5M },
+                new Record() { Name = "Record 9", Price = 13.5M },
+                new Record() { Name = "Record 10", Price = 13.5M },
+            };
+
+            var viewModel = new RecordList()
+            {
+                Records = records
+            };
             return View();
         }
 
