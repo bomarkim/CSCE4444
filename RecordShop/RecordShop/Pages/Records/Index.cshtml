@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model RecordShop.Records.IndexModel
 
 @{
@@ -11,6 +11,20 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form>
+    <p>
+        <select asp-for="RecordGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+
+        <div>
+            Title: <input type="text" name="SearchString" style="color: black;" />
+            <input type="submit" value="Filter" style = "background-color: #d1d1d1; color: black;"  />
+        </div>
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
