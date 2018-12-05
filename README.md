@@ -155,3 +155,23 @@ check the solutions explorer for a "Migrations" folder
 
 - every time you add something to a model that interacts with a DB you MUST add a new migration!!
 - Package Manager Console > Add-Migration <name of migration> > Update-Database
+    
+    
+    
+    
+    
+    
+    TODO:
+    1. Search, first bobby needs to give me all the things -BJ
+    2. Get edit and delete Records pages working - B
+    3. Shopping cart - J
+    4. general maintenance -J
+        a. carousel on index
+        b. Probably some changes to about and contact pages
+        c. Check all buttons
+    5. admin pages working - B
+        a. search users 
+        b. edit/delete users
+    6. Users need to have a isAdmin attribute - B
+    7. Connect Sign in and Register - A
+        a. create customer table
