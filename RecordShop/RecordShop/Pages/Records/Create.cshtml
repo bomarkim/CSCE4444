@@ -6,56 +6,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Add Record</h2>
 
 <h4>Record</h4>
 <hr />
-<div class="row">
+<div class="row" ng-app="record" ng-controller="AddRecordCtrl">
     <div class="col-md-4">
-        <form method="post">
+        <form id="createForm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Record.Genre" class="control-label">Genre</label>
-                <input asp-for="Record.Genre" class="form-control" />
+                <input asp-for="Record.Genre" ng-model="form.Genre" class="form-control" />
                 <span asp-validation-for="Record.Genre" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Record.Name" class="control-label">Title</label>
-                <input asp-for="Record.Name" class="form-control" />
+                <input asp-for="Record.Name" ng-model="form.Name" class="form-control" />
                 <span asp-validation-for="Record.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Record.Artist" class="control-label">Artist</label>
-                <input asp-for="Record.Artist" class="form-control" />
+                <input asp-for="Record.Artist" ng-model="form.Artist" class="form-control" />
                 <span asp-validation-for="Record.Artist" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Record.Description" class="control-label">Description</label>
-                <input asp-for="Record.Description" class="form-control" />
+                <input asp-for="Record.Description" ng-model="form.Description" class="form-control" />
                 <span asp-validation-for="Record.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Record.Price" class="control-label">Price</label>
-                <input asp-for="Record.Price" class="form-control" />
+                <input asp-for="Record.Price" ng-model="form.Price" class="form-control" />
                 <span asp-validation-for="Record.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Record.ImageUrl" class="control-label">Image Url</label>
-                <input asp-for="Record.ImageUrl" class="form-control" />
+                <input asp-for="Record.ImageUrl" ng-model="form.ImageUrl" class="form-control" />
                 <span asp-validation-for="Record.ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Record.ImageThumbnailUrl" class="control-label">Thumbnail Url</label>
-                <input asp-for="Record.ImageThumbnailUrl" class="form-control" />
-                <span asp-validation-for="Record.ImageThumbnailUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Record.isPreferredGenre" class="control-label">Preferred Genre?</label>
-                <input asp-for="Record.isPreferredGenre" class="form-control" />
-                <span asp-validation-for="Record.isPreferredGenre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <button type="submit" ng-click="submitForm()" class="btn btn-default">Submit</button>
             </div>
         </form>
     </div>
@@ -63,8 +53,8 @@
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb red darken-3">
-        <li class="breadcrumb-item"><a href="Home">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Create</li>
+        <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Record</li>
     </ol>
 </nav>
 

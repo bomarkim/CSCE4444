@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RecordShop.Models;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 
 namespace RecordShop.Controllers
 {
@@ -13,7 +16,7 @@ namespace RecordShop.Controllers
         //get random record
         public IActionResult Random()
         {
-            var record = new Record() {Name = "Test Record!" };
+            var record = new Record() { Name = "Test Record!" };
             List<Record> records = new List<Record>() {
                 new Record() { Name = "Record 1", Price = 13.5M },
                 new Record() { Name = "Record 2", Price = 13.5M},
@@ -37,7 +40,7 @@ namespace RecordShop.Controllers
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "Server=(localdb)\\mssqllocaldb;Database=RecordShopContext-b49164cf-bf78-4044-8391-2ba48464356a;Trusted_Connection=True;MultipleActiveResultSets=true;";
             conn.Open();
-            
+
             var list = new List<Record>();
             SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Record;");
             sqlCommand.Connection = conn;
@@ -103,6 +106,37 @@ namespace RecordShop.Controllers
             var list = new List<Record>();
             list = getAllRecordsList();
             return list.Count;
+        }
+
+        [HttpPost]
+        public bool addRecord([FromBody] Record record)
+        {
+            if(!ModelState.IsValid)
+            {
+                return false;
+            }
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Server=(localdb)\\mssqllocaldb;Database=RecordShopContext-b49164cf-bf78-4044-8391-2ba48464356a;Trusted_Connection=True;MultipleActiveResultSets=true;";
+            conn.Open();
+
+            var list = new List<Record>();
+            SqlCommand sqlCommand = new SqlCommand("INSERT into Record ([Name], [Genre], [Artist], [Description], [Price], [ImageUrl]) values (@name, @genre, @artist, @description, @price, @imageUrl);");
+            sqlCommand.Connection = conn;
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+
+            using (sqlCommand)
+            {
+                sqlCommand.Parameters.AddWithValue("@name", record.Name);
+                sqlCommand.Parameters.AddWithValue("@genre", record.Genre);
+                sqlCommand.Parameters.AddWithValue("@artist", record.Artist);
+                sqlCommand.Parameters.AddWithValue("@description", record.Description);
+                sqlCommand.Parameters.AddWithValue("@price", record.Price);
+                sqlCommand.Parameters.AddWithValue("@imageUrl", record.ImageUrl);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            return false;
         }
     }
 }

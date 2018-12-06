@@ -64,7 +64,7 @@ using RecordShop.Models;
             WriteLiteral("\r\n<h2>Sign In</h2>\r\n\r\n");
             EndContext();
             BeginContext(114, 622, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86ff60d0a9f94e0b88f12c31f1e7053e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6fda17723b594507b45f989a4bea1c31", async() => {
                 BeginContext(120, 609, true);
                 WriteLiteral(@"
     <div class=""form-row"">

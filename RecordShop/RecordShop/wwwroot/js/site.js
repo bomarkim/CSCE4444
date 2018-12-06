@@ -131,6 +131,15 @@ app.controller("IndexCtrl", function ($scope, $http) {
     
 });
 
+app.controller("AdminCtrl", function ($scope, $http) {
+    $scope.user = {
+        email: "",
+        pass: "",
+        isAdmin: ""
+    };
+
+});
+
 app.controller("LayoutCtrl", function ($scope) {
     $scope.user = {
         email: "",
@@ -168,17 +177,23 @@ app.controller("RecordListCtrl", function ($scope, $http) {
     
 });
 
-app.controller("AddRecordCtrl", function ($scope, $http) {
-    $scope.album = {
-        name: "",
-            artist: "",
-            genre: "",
-            price: "",
-            picture: ""     
+app.controller("AddRecordCtrl", ['$scope', '$http', function ($scope, $http) {
+    $scope.form = {
+        Name: "",
+        Artist: "",
+        Genre: "",
+        Description: "",
+        Price: "",
+        ImageUrl: "",
     };
-    $scope.submitForm() = function () {
+    $scope.submitForm = function () {
         //do the thing that puts it in the database
-        //$http.post("Records/addRecord/{record})
+        $http.post("addRecord/", JSON.stringify($scope.form))
+            .then(function (result) {
+                console.log(result);
+            });
+
+            
     };
-});
+}]);
 
