@@ -35,7 +35,7 @@ namespace RecordShop.Controllers
         {
 
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=(local);Initial Catalog=RecordShopContext-b49164cf-bf78-4044-8391-2ba48464356a;Integrated Security=True;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;User Id=sa;Password=;";
+            conn.ConnectionString = "Server=(localdb)\\mssqllocaldb;Database=RecordShopContext-b49164cf-bf78-4044-8391-2ba48464356a;Trusted_Connection=True;MultipleActiveResultSets=true;";
             conn.Open();
             
             var list = new List<Record>();
@@ -51,13 +51,58 @@ namespace RecordShop.Controllers
                 r.RecordId = (int)reader["RecordId"];
                 r.Price = (Decimal)reader["Price"];
                 r.ImageUrl = (string)reader["ImageUrl"];
-                r.ImageThumbnailUrl = (string)reader["ImageThumbnailUrl"];
-                r.isPreferredGenre = (string)reader["isPreferredGenre"];
+
                 r.Name = (string)reader["Name"];
                 list.Add(r);
             }
 
             return Json(list);
+        }
+
+        [HttpGet]
+        public List<Record> getAllRecordsList()
+        {
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "Server=(localdb)\\mssqllocaldb;Database=RecordShopContext-b49164cf-bf78-4044-8391-2ba48464356a;Trusted_Connection=True;MultipleActiveResultSets=true;";
+            conn.Open();
+
+            var list = new List<Record>();
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Record;");
+            sqlCommand.Connection = conn;
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                Record r = new Record();
+                r.Artist = (string)reader["Artist"];
+                r.Description = (string)reader["Description"];
+                r.Genre = (string)reader["Genre"];
+                r.RecordId = (int)reader["RecordId"];
+                r.Price = (Decimal)reader["Price"];
+                r.ImageUrl = (string)reader["ImageUrl"];
+
+                r.Name = (string)reader["Name"];
+                list.Add(r);
+            }
+
+            return list;
+        }
+
+        [HttpGet]
+        public JsonResult getAlbum(int recordId)
+        {
+            var list = new List<Record>();
+            list = getAllRecordsList();
+
+            Record result = list.Find(item => item.RecordId == recordId);
+            return Json(result);
+        }
+
+        public int getNumRecords()
+        {
+            var list = new List<Record>();
+            list = getAllRecordsList();
+            return list.Count;
         }
     }
 }

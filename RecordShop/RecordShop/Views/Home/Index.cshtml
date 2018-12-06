@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div ng-app="record" ng-controller="IndexCtrl">
+<div ng-app="record" ng-controller="IndexCtrl" ng-cloak>
     <div class="margin-y-3">
         <div class="autoplay">
             <div class="m-auto">
@@ -18,15 +18,7 @@
 
 
     <div class="margin-y-3">
-        <div class="record-car" ng-repeat="r in listOfAlbums">
-            <a>
-                <div class="slide">
-                    <img src="">{{r.img}}
-                    <div class="slide__caption">r.name</div>
-
-                </div>
-            </a>
-        </div>
+        <h4>Welcome to the Record Shop, check out the finest Records here! Just visit the Record List if you know what you want, and find a Random Record if you're feeling lucky!</h4>
     </div>
 
     <nav aria-label="breadcrumb">

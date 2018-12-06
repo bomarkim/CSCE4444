@@ -96,61 +96,36 @@ app.controller('CartCtrl', function ($scope) {
     
 });
 
-app.controller("IndexCtrl", function ($scope) {
+app.controller("IndexCtrl", function ($scope, $http) {
     $('.autoplay').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
     });
-
-    $('.record-car').slick({
-        slidesToShow: 5,
-        slidesToScroll: 5,
+    $(".slider").slick({
+        slidesToShow: 3,
+        infinite: true,
+        slidesToScroll: 2
+        
     });
-    $scope.listOfAlbums = [
-        {
-            name: "Album1",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album2",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album3",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album4",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album5",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album6",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album7",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album8",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album9",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album10",
-            img: "Not a link yet, because I don't know how to just yet."
-        }
+    $scope.init = function () {
+        $scope.loading = true;
+        
+        
 
-    ];
+    }();
+    $http.get("/Records/getAllRecords")
+        .then(function (response) {
+            $scope.listOfRecords = response.data;
+            $scope.loading = false;
+        }, function (response) {
+            console.log(response);
+        });
+
+        
+    
+    
 
     $scope.name = "";
     
@@ -175,42 +150,35 @@ app.controller("LayoutCtrl", function ($scope) {
    
 });
 
-app.controller("AlbumCtrl", function ($scope) {
-    $scope.album = {
-        name: "Abbey Road",
-        imgSrc: "~/images/AbbeyRoad.jpg",
-        distributer: "That place down the road",
-        description: "This is an album that is good and has an iconic album cover. Get it before it runs out!",
-        price: 29.99
-    };
+app.controller("AlbumCtrl", function ($scope, $http) {
+    $scope.init = function (ID) {
+        $http.get("/Records/getAlbum?recordId=" + ID)
+            .then(function (response) {
+                $scope.album = response.data;
+            });
+    }
+    console.log($scope.album);
 });
 
 app.controller("RecordListCtrl", function ($scope, $http) {
-    $scope.get = $http({
-        method: "GET",
-        url: "/Records/getAllRecords",
-        dataType: 'json',
-        data: { list: $scope.listOfRecords },
-        headers: { "Content-Type": "application/json" }
-    });
-    get.success(function (data, status) {
-        $scope.listOfRecords = data;
-    }).error(function (data, status) {
-        $window.alert(data.Message);
-    });
+    $http.get("/Records/getAllRecords")
+        .then(function (response) {
+            $scope.listOfRecords = response.data;
+        })
+    
 });
 
-app.controller("AddRecordCtrl", function ($scope) {
+app.controller("AddRecordCtrl", function ($scope, $http) {
     $scope.album = {
         name: "",
             artist: "",
             genre: "",
             price: "",
-            picture: ""
-            
+            picture: ""     
     };
     $scope.submitForm() = function () {
         //do the thing that puts it in the database
+        //$http.post("Records/addRecord/{record})
     };
 });
 

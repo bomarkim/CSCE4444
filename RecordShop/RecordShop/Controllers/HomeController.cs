@@ -19,37 +19,17 @@ namespace RecordShop.Controllers
         //get random record
         public IActionResult Random()
         {
-            var record = new Record() {
-                Name = "Test Record!",
-                Genre = "Pop",
-                Artist = "Linkin Park",
-                Description = "This is an Album",
-                Price = 12
-            };
+            Random rnd = new Random();
+            var numRecords = new RecordsController().getNumRecords();
+            var Id = rnd.Next(1, numRecords);
 
-            //temp creating list of customers
-            var customers = new List<Customer>
-            {
-                new Customer {Name = "Cust 1"},
-                new Customer {Name = "Cust 2"},
-            };
-
-            //create viewmodel object
-            var viewModel = new RandomRecordViewModel
-            {
-                Record = record,
-                Customers = customers
-            };
-
-            //return random record from dict
-            ViewData["Record"] = record;
-            return View(viewModel); //return viewmodel here
-            
+            return RedirectToAction("Album", new { id = Id });
         }
 
         //edit record referenced by ID
         public IActionResult Edit(int id)
         {
+
             return Content("id=" + id);
         }
 
@@ -74,6 +54,7 @@ namespace RecordShop.Controllers
 
         public IActionResult Album(int ID)
         {
+            ViewBag.ID = ID;
             return View();
         }
 

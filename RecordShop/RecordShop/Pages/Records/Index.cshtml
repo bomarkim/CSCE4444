@@ -80,14 +80,14 @@
         <td>
             <h5>@Html.DisplayFor(modelItem => item.ImageThumbnailUrl)</h5>
         </td>*@
-                <td>
+                @*<td>
                     <h5> @Html.DisplayFor(modelItem => item.isPreferredGenre)</h5>
-                </td>
+                </td>*@
                 <td>
                     <h4>
-                        <a asp-page="./Edit" asp-route-id="@item.RecordId">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.RecordId">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.RecordId">Delete</a>
+                        <a href="/Records/Edit?RecordId=@item.RecordId">Edit</a> |
+                        <a href="/Records/Details?RecordId=@item.RecordId">Details</a> |
+                        <a href="/Records/Delete?RecordId=@item.RecordId">Delete</a>
                     </h4>
                 </td>
             </tr>

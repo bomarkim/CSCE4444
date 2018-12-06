@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 //added for entity framework error fix
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RecordShop.Models
 {
@@ -49,4 +52,5 @@ namespace RecordShop.Models
         //public int CategoryId { get; set; }
         //public virtual Category Category { get; set; }
     }
+
 }

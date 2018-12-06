@@ -61,9 +61,12 @@
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb red darken-3">
+        <li class="breadcrumb-item"><a href="Home">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create</li>
+    </ol>
+</nav>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
