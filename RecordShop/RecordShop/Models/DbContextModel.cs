@@ -15,8 +15,14 @@ namespace RecordShop.Models
                 : base(options)
             { }
 
+            public RecordShop_Context() { }
+
             public DbSet<Customer> Customers { get; set; }
             public DbSet<Record> Records { get; set; }
+            public DbSet<ShoppingCart> Carts { get; set; }
+            public DbSet<CartItem> CartItems { get; set; }
+
+            
         }
 
     }

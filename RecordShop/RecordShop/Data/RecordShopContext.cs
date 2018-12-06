@@ -8,6 +8,10 @@ namespace RecordShop.Models
 {
     public class RecordShopContext : DbContext
     {
+        public RecordShopContext()
+        {
+        }
+
         public RecordShopContext (DbContextOptions<RecordShopContext> options)
             : base(options)
         {

@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cart</h2>
+
+<div class="container" ng-app="record" ng-controller="CartCtrl">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"><h2>Product</h2></th>
+                <th scope="col"><h2>Price</h2></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in CartItemList">
+                <th scope="row">
+                    <div class="col-sm-2"><img src="http://placehold.it/100x100" alt="..." class="img-responsive" /></div>
+                    <div class="col-sm-10">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </th>
+                <td><h3>{{item.price}}</h3></td>
+                <td><button class="btn btn-danger btn-lg" ng-click="removeAlbum(item); getTotalPrice()"><i class="fa fa-trash-o"></i></button></td>
+            </tr>
+            <tr>
+                <th scope="row">
+                </th>
+                <td>
+                    <h2>Total Price: </h2>
+                </td>
+                <td>
+                    <h2>{{total}}</h2>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

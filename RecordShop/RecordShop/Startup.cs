@@ -44,7 +44,20 @@ namespace RecordShop
             //need this for entity injection
             //services.AddDbContext<RecordShop_Context>(options => options.UseSqlServer(Configuration["ConnectionStrings:Default"]));
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => Cart.getCart(sp));
+
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMemoryCache();
 
             //var connection = @"Server=(localdb)\mssqllocaldb;Database=RecordShop_Context.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
             //services.AddDbContext<RecordShop_Context>
@@ -68,6 +81,7 @@ namespace RecordShop
             }
 
             app.UseHttpsRedirection();
+            app.UseSession();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 

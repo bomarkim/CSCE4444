@@ -47,6 +47,8 @@ namespace RecordShop.Models
 
         //boolean for selected genre
         public string isPreferredGenre { get; set; }
+
+
         
         //set category id for relationships
         //public int CategoryId { get; set; }

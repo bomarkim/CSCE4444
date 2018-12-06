@@ -29,56 +29,21 @@ app.controller('SiteCtrl', ['$scope', function ($scope) {
     
 }]);
 
-app.controller('CartCtrl', function ($scope) {
-        $scope.albums = [{
-            name: "Album 1",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 2",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 3",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 4",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 5",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 6",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 7",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 8",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 9",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 10",
-            description: "This is an album.",
-            price: 12.99
-        }, {
-            name: "Album 11",
-            description: "This is an album.",
-            price: 12.99
-        },
-        ];
+app.controller('CartCtrl', function ($scope, $http) {
+
+    $http.get("ShoppingCart/GetCartItems")
+        .then(function (response) {
+            $scope.CartItemList = response.data;
+        })
+
+    $http.get("ShoppingCart/GetCartTotal")
+        .then(function(response){
+            $scope.total = response.data
+        })
+        
     
     $scope.cart = {
-        totalPrice: 0
+        
     };
     $scope.getTotalPrice = function () {
         $scope.cart.totalPrice = 0;
