@@ -15,18 +15,25 @@ namespace RecordShop.Models
         public int RecordId { get; set; }
 
         //record genre
+        [Required]
+        [StringLength(15)]
         public string Genre { get; set; }
 
         //name of record
+        [Required]
         public string Name { get; set; }
 
         //artist of record
+        [Required]
         public string Artist { get; set; }
 
         //record description
+        [StringLength(45)]
         public string Description { get; set; }
 
         //record price
+        [Required]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
         //image location for record 
