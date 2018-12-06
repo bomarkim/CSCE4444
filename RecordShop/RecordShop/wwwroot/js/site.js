@@ -185,50 +185,19 @@ app.controller("AlbumCtrl", function ($scope) {
     };
 });
 
-app.controller("RecordListCtrl", function ($scope) {
-    $scope.listOfAlbums = [
-        {
-            name: "Album1",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album2",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album3",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album4",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album5",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album6",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album7",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album8",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album9",
-            img: "Not a link yet, because I don't know how to just yet."
-        },
-        {
-            name: "Album10",
-            img: "Not a link yet, because I don't know how to just yet."
-        }
-
-    ];
+app.controller("RecordListCtrl", function ($scope, $http) {
+    $scope.get = $http({
+        method: "GET",
+        url: "/Records/getAllRecords",
+        dataType: 'json',
+        data: { list: $scope.listOfRecords },
+        headers: { "Content-Type": "application/json" }
+    });
+    get.success(function (data, status) {
+        $scope.listOfRecords = data;
+    }).error(function (data, status) {
+        $window.alert(data.Message);
+    });
 });
 
 app.controller("AddRecordCtrl", function ($scope) {

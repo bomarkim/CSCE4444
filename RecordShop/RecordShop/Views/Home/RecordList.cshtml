@@ -7,7 +7,7 @@
     <h2>RecordList</h2>
     <input type="text" class="form-control" id="name" placeholder="Album Name" ng-model="name"/>
     <ul>
-        <li ng-repeat="r in listOfAlbums | filter: {name : name}">
+        <li ng-repeat="r in listOfRecords | filter: {name : name}">
             <h4>{{r.name}}</h4>
             <a href="album">{{r.img}}</a>
         </li>
